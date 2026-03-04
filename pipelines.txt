@@ -1,0 +1,87 @@
+"What is Jenkins Pipeline"?
+   -> ye ik automatic workflow ha ,jaha ap ik software ko ap build krta ha => test krta hai => deployment hoti ha.
+ -> Developer pushes code -> Jenkins pipeline triger hoti ha/run hoti ->software build hota ha -> tests run hota ha -> server pr deploy hota 
+ -> jenkins jo ha wo bht sara plugin k ik collection / group ha .jo sara mil kr ik sysem bnata ha jis ko kehta ha pipeline
+ -> ye sari plugin jo ha wo basically jenkins ko  jo ha wo continous dilivery pipe line bna deta ha ta k software dilevery process enable   posible ho ska 
+ -> ye ik continous delivery pipeline like code change howa,push howa,build ,test and deploy us chez ko ye automatic bna deta .software ko bar bar release krna easy bnata ha
+ -> ye jo sara process push->build->test->deploy us ko ye documented bna deta ha pipeline{ build test deply } asa bna deta .
+ -> ye version control s data leta ha us k baad us ko keya krta ah build kr deta ha ,version control jasa git,github  gitlab etc
+ ->yahi pipeline jo ha wo sofware ko users tk pahuchata ha ,ye bhe advantage jo ha hmai jenkins s milta ha
+ -> code change
+ ↓
+build
+ ↓
+unit tests
+ ↓
+integration tests
+ ↓
+security scan
+ ↓
+ => ye jo process ha manually mushkil ha ye us ko automate bna deta ha which is pretty cool and awesome
+ -> ye code ko assa bnata ha k code jo a wo sahi chala ,us mai error jo ha wo bht kam hn ,
+ -> ik process agr 1000 bar bhe chala tb bhe result same ho us mai koi issue na ho. 
+ -> jb code ko build keya ha jata ha to ,code k jo ha wo ik file bnti ha like  .jar,docker image etc
+ -> ye jo pipeline h ye basically stages mai cheze la k chlti ha build stage -> testing stage ->security stage -> deploy
+ -> to basiclly jenkins mai ye sara kam jo ha wo stage mai hota ha .
+ -> Real Production :
+  Devoper pushes code ->GitHub webhook trigger -> Jenkins pipeline start -> Build project -> Run test -> Create Docker image -> Push image to registry -> deploy to kubernetes
+
+pip line jo ha wo fixed ni ha ,like ap aur plugin add kr skta ha aur us ko expand keya jata ha .so us k jo architecture jo ha wo extensible architecture
+aur ye simple s complex workflows ko handle kr skt ah .
+process ko ui s manually configure krna ki bajae usko code ki form mai likhna 
+ap assa krta ha jo bhe krna ha us ko code k form ma likta ha assa kuch  
+pipline {       
+  stage{ 
+  stage(){}
+  stage(){}
+  stage(){}
+  }
+-> us trha ap ap bjae ui mai click krna k ap simple keya krta ha us trha lkhta ha aur wo pipline system k ander sb chal jat aha .
+-> aur us mai ik special programing language use ke gi ha jis k name Dsl ha jaha ik specific treqa s ap program likhta ha.
+->jenkinsfile ko bhe ap normal git repo k trha store kr skta ha .
+-> sari configuration jo bhe required ha pipline system k leye ap us ko likh skta ha easily . code k form mai
+
+}
+
+                  Simple Visualization (Demag me bethane ke liye)
+
+Normal CI/CD pipeline:
+
+GitHub repo
+      ↓
+Jenkinsfile
+      ↓
+Jenkins Pipeline
+      ↓
+Build
+      ↓
+Test
+      ↓
+Deploy
+
+k Important Real Production Example
+
+Real company pipeline:
+
+developer push code
+↓
+Jenkins detect Jenkinsfile
+↓
+pipeline start
+↓
+build project
+↓
+run tests
+↓
+docker image build
+↓
+push image
+↓
+deploy to kubernetes
+
+--------------------------------->pipline types------------------------------------------------>
+1-diclaratve pipline 2-scripted pipline => both have same kam built,test and deploy.
+diclarative pipline ik fixed structure follow krti ha jb scriptive pipline jo ha wo ik programing style ko folow krti ha.
+Delarative => pipeline {}    scriptive => node {}    firs bigners k ley and second advanced users k leye .
+-> pehli k code jo ha wo easy to creae and read and maintain krna ha ->
+Declarative pipeline mein built-in features zyada hain.
